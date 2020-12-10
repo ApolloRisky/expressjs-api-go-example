@@ -1,10 +1,11 @@
 const express = require('express');
+const apiRoutes = require('./api');
 
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', (_req, res) => {
-  res.json({ text: 'Hello world!' });
-});
+router.use('/api', apiRoutes);
+
+router.route('/status')
+  .get((req, res) => res.send('OK'));
 
 module.exports = router;

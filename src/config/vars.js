@@ -5,7 +5,7 @@ dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 module.exports = {
   env: process.env.NODE_ENV,
-  port: process.env.PORT || 3000,
+  port: process.env.PORT,
   mongo: {
     uri: process.env.MONGODB_URI,
     options: {
@@ -13,7 +13,7 @@ module.exports = {
       useCreateIndex: true,
       useNewUrlParser: true,
       useFindAndModify: false,
-      userUnifiedTopology: true,
+      useUnifiedTopology: true,
     },
   },
   morganLogFormat: process.env.NODE_ENV === 'production' ? 'combined' : 'dev',
